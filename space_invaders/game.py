@@ -5,7 +5,7 @@ window = turtle.Screen()
 window.bgcolor('black')
 window.title('Space Invaders')
 
-# delay = raw_input('press anything to end')
+#Draw Border
 border_pen = turtle.Turtle()
 border_pen.speed(0)
 border_pen.color('white')
@@ -18,6 +18,8 @@ for side in range(4):
     border_pen.lt(90)
 border_pen.hideturtle()
 
+
+#Initiate Player
 player = turtle.Turtle()
 player.setposition(0, -250)
 player.color('blue')
@@ -26,6 +28,8 @@ player.penup()
 player.speed(0)
 player.setheading(90)
 
+
+#Initiate Enemy
 enemy = turtle.Turtle()
 enemy.setposition(0, 250)
 enemy.color('red')
@@ -34,6 +38,7 @@ enemy.penup()
 enemy.speed(0)
 enemy.setheading(270)
 
+#Set Speed
 player_speed = 15
 enemy_speed = 15
 
@@ -89,6 +94,7 @@ def move_enemy_up():
     enemy.sety(y)
 
 
+#Events Listeners
 turtle.listen()
 turtle.onkey(move_player_left, 'a')
 turtle.onkey(move_player_right, 'd')
@@ -99,7 +105,6 @@ turtle.onkey(move_enemy_left, 'Left')
 turtle.onkey(move_enemy_right, 'Right')
 turtle.onkey(move_enemy_up, 'Up')
 turtle.onkey(move_enemy_down, 'Down')
-
 
 
 turtle.done()
