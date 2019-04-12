@@ -40,7 +40,7 @@ for i in range(number_of_enemies):
 
 #Initiate Enemy
 for enemy in enemies:
-    enemy = turtle.Turtle()
+    # enemy = turtle.Turtle()
     enemy.shape("circle")
     enemy.color('red')
     enemy.penup()
@@ -63,7 +63,7 @@ bullet.speed(0)
 bullet.setheading(90)
 bullet.shapesize(0.5, 0.5)
 bullet.hideturtle()
-bullet_speed = 20
+bullet_speed = 50
 bullet_state = 'ready'
 
 # Player Motion
@@ -118,7 +118,7 @@ turtle.onkey(fire_bullet, 'space')
 
 # Enemy Motion / Main Loop:
 while True:
-    # for enemy in enemies:
+
     for enemy in enemies:
         x = enemy.xcor()
         x += enemy_speed
@@ -141,6 +141,9 @@ while True:
             bullet_state = "ready"
             bullet.setposition(0, -400)
             enemy.setposition(-200, 250)
+            x = random.randint(-200, 200)
+            y = random.randint(100, 250)
+            enemy.setposition(x, y)
 
         if isCollosion(player, enemy):
             player.hideturtle()
