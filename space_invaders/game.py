@@ -1,6 +1,7 @@
 import turtle
 import os
 import math
+import random
 
 window = turtle.Screen()
 window.bgcolor('black')
@@ -29,15 +30,25 @@ player.penup()
 player.speed(0)
 player.setheading(90)
 
+#Choose the number of enemies:
+number_of_enemies = 5
+enemies = []
+
+#Add enemies to the list
+for i in range(number_of_enemies):
+    enemies.append(turtle.Turtle())
 
 #Initiate Enemy
-enemy = turtle.Turtle()
-enemy.shape("circle")
-enemy.setposition(-200, 250)
-enemy.color('red')
-enemy.penup()
-enemy.speed(2)
-enemy.setheading(270)
+for enemy in enemies:
+    enemy = turtle.Turtle()
+    enemy.shape("circle")
+    enemy.color('red')
+    enemy.penup()
+    enemy.speed(2)
+    enemy.setheading(270)
+    x = random.randint(-200, 200)
+    y = random.randint(100, 250)
+    enemy.setposition(x, y)
 
 #Set Speed
 player_speed = 15
@@ -54,8 +65,6 @@ bullet.shapesize(0.5, 0.5)
 bullet.hideturtle()
 bullet_speed = 20
 bullet_state = 'ready'
-
-
 
 # Player Motion
 def move_player_left():
@@ -109,22 +118,35 @@ turtle.onkey(fire_bullet, 'space')
 
 # Enemy Motion / Main Loop:
 while True:
-    #Move Enemy
-    x = enemy.xcor()
-    x += enemy_speed
-    enemy.setx(x)
+    # for enemy in enemies:
+    for enemy in enemies:
+        x = enemy.xcor()
+        x += enemy_speed
+        enemy.setx(x)
+            
+        if enemy.xcor() > 280:
+            y = enemy.ycor()
+            y -= 40
+            enemy_speed *= -1
+            enemy.sety(y)
 
-    if enemy.xcor() > 280:
-        y = enemy.ycor()
-        y -= 40
-        enemy_speed *= -1
-        enemy.sety(y)
+        if enemy.xcor() < -280:
+            y = enemy.ycor()
+            y -= 40
+            enemy_speed *= -1
+            enemy.sety(y)
 
-    if enemy.xcor() < -280:
-        y = enemy.ycor()
-        y -= 40
-        enemy_speed *= -1
-        enemy.sety(y)
+        if isCollosion(bullet, enemy):
+            bullet.hideturtle()
+            bullet_state = "ready"
+            bullet.setposition(0, -400)
+            enemy.setposition(-200, 250)
+
+        if isCollosion(player, enemy):
+            player.hideturtle()
+            enemy.hideturtle()
+            print("Game Over!")
+            break
 
     if bullet_state == 'fire':
         y = bullet.ycor()
@@ -134,14 +156,5 @@ while True:
     if bullet.ycor() > 275:
         bullet.hideturtle()
         bullet_state = 'ready'
-
-    if isCollosion(bullet, enemy):
-        bullet.hideturtle()
-        bullet_state = 'ready'
-        bullet.setposition(0, -400)
-        enemy.setposition(-200, 250)
-
-    if bullet.ycor() == enemy.ycor():
-        print('won!')
 
 turtle.done()
