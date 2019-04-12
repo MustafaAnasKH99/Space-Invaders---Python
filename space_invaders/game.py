@@ -1,5 +1,6 @@
 import turtle
 import os
+import math
 
 window = turtle.Screen()
 window.bgcolor('black')
@@ -90,6 +91,13 @@ def fire_bullet():
         bullet.setposition(x, y)
         bullet.showturtle()
 
+def isCollosion(t1, t2):
+    distance = math.sqrt(math.pow(t1.xcor() - t2.xcor(), 2) + math.pow(t1.ycor() - t2.ycor(), 2))
+    if distance < 15:
+        return True
+    else:
+        return False
+
 
 #Events Listeners
 turtle.listen()
@@ -126,6 +134,12 @@ while True:
     if bullet.ycor() > 275:
         bullet.hideturtle()
         bullet_state = 'ready'
+
+    if isCollosion(bullet, enemy):
+        bullet.hideturtle()
+        bullet_state = 'ready'
+        bullet.setposition(0, -400)
+        enemy.setposition(-200, 250)
 
     if bullet.ycor() == enemy.ycor():
         print('won!')
