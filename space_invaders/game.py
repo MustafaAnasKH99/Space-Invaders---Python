@@ -149,6 +149,7 @@ while True:
             player.hideturtle()
             enemy.hideturtle()
             print("Game Over!")
+            turtle.done()
             break
 
     if bullet_state == 'fire':
