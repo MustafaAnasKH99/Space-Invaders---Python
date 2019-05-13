@@ -6,6 +6,13 @@ import random
 window = turtle.Screen()
 window.bgcolor('black')
 window.title('Space Invaders')
+window.bgpic("bg.gif")
+
+#Register Shape
+turtle.register_shape("bg.gif")
+turtle.register_shape("player.gif")
+turtle.register_shape("invador.gif")
+# turtle.register_shape("ENEMY.png")
 
 #Draw Border
 border_pen = turtle.Turtle()
@@ -29,6 +36,7 @@ player.shape('triangle')
 player.penup()
 player.speed(0)
 player.setheading(90)
+player.shape("player.gif")
 
 #Choose the number of enemies:
 number_of_enemies = 5
@@ -49,6 +57,7 @@ for enemy in enemies:
     x = random.randint(-200, 200)
     y = random.randint(100, 250)
     enemy.setposition(x, y)
+    enemy.shape("invador.gif")
 
 #Set Speed
 player_speed = 15
