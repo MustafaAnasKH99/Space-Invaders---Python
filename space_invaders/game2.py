@@ -1,3 +1,5 @@
+#  This file is for the follow up tutorial 🐢 
+
 import turtle
 pen = turtle.Turtle()
 
