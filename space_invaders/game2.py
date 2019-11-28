@@ -7,6 +7,7 @@ from tkinter import PhotoImage
 pen = turtle.Turtle()
 
 turtle.register_shape("ship.gif")
+turtle.register_shape("invador.gif")
 
 pen.penup()
 pen.setposition(-300,300)
@@ -30,11 +31,14 @@ for enemy in enemies:
     y = randint(0, 300)
     enemy.penup()
     enemy.setposition(x, y)
+    enemy.shape('invador.gif')
 
 def moveRight():
     x = player.xcor()
     x += 10
     player.setx(x)
+
+
 
 def moveLeft():
     x = player.xcor()
