@@ -1,7 +1,11 @@
 #  This file is for the follow up tutorial 🐢 
 
 import turtle
+from tkinter import PhotoImage
+
 pen = turtle.Turtle()
+
+turtle.register_shape("ship.gif")
 
 pen.penup()
 pen.setposition(-300,300)
@@ -13,6 +17,7 @@ pen.forward(600)
 pen.hideturtle()
 
 player = turtle.Turtle()
+player.shape('ship.gif')
 player.penup()
 
 def moveRight():
