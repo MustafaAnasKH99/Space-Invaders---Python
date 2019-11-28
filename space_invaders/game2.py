@@ -1,6 +1,7 @@
-#  This file is for the follow up tutorial 🐢 
-
+#  This file is for the follow up tutorial 🐢
 import turtle
+
+from random import randint
 from tkinter import PhotoImage
 
 pen = turtle.Turtle()
@@ -19,6 +20,16 @@ pen.hideturtle()
 player = turtle.Turtle()
 player.shape('ship.gif')
 player.penup()
+
+enemies = []
+for i in range(10):
+    enemies.append(turtle.Turtle())
+
+for enemy in enemies:
+    x = randint(-300, 300)
+    y = randint(0, 300)
+    enemy.penup()
+    enemy.setposition(x, y)
 
 def moveRight():
     x = player.xcor()
