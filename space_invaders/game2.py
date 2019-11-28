@@ -64,5 +64,7 @@ wn.onkey(moveLeft, 'a')
 wn.onkey(moveForward, 'w')
 wn.onkey(moveBackward, 's')
 
+wn.bgpic("bg.gif")
+
 turtle.done() #this just keeps the window open until we close it.
 turtle.close() #this just fixes issues related to closing the window
