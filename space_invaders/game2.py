@@ -3,11 +3,14 @@
 import turtle
 pen = turtle.Turtle()
 
+pen.penup()
+pen.setposition(-300,300)
 pen.pendown() #this line puts the pen on the paper
 for side in range(3): #see number three? its what reminds Python,  THREE times!
-  pen.forward(100)
+  pen.forward(600)
   pen.right(90)
-pen.forward(100)
+pen.forward(600)
+pen.hideturtle()
 
 player = turtle.Turtle()
 player.penup()
@@ -41,4 +44,5 @@ wn.onkey(moveLeft, 'a')
 wn.onkey(moveForward, 'w')
 wn.onkey(moveBackward, 's')
 
-turtle.done() 
+turtle.done() #this just keeps the window open until we close it.
+turtle.close() #this just fixes issues related to closing the window
