@@ -2,7 +2,6 @@
 import turtle
 
 from random import randint
-from tkinter import PhotoImage
 
 pen = turtle.Turtle()
 
