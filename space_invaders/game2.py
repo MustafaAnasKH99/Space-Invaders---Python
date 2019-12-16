@@ -11,9 +11,11 @@ turtle.register_shape("invador.gif")
 pen.penup()
 pen.setposition(-300,300)
 pen.pendown() #this line puts the pen on the paper
+
 for side in range(3): #see number three? its what reminds Python,  THREE times!
   pen.forward(600)
   pen.right(90)
+
 pen.forward(600)
 pen.hideturtle()
 
@@ -23,20 +25,19 @@ player.penup()
 
 enemies = []
 for i in range(10):
-    enemies.append(turtle.Turtle())
+  enemies.append(turtle.Turtle())
 
 for enemy in enemies:
-    x = randint(-300, 300)
-    y = randint(0, 300)
-    enemy.penup()
-    enemy.setposition(x, y)
-    enemy.shape('invador.gif')
+  x = randint(-300, 300)
+  y = randint(0, 300)
+  enemy.penup()
+  enemy.setposition(x, y)
+  enemy.shape('invador.gif')
 
 def moveRight():
-    x = player.xcor()
-    x += 10
-    player.setx(x)
-
+  x = player.xcor()
+  x += 10
+  player.setx(x)
 
 
 def moveLeft():
