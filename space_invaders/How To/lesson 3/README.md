@@ -1,6 +1,7 @@
 # Teach Your Kids How To Build Their Own Game with Python - Part 3
 
 So, without further due, lets pickup from where we left last time.
+(Nope wait! if you havent, go check [part 1](https://dev.to/mustafaanaskh99/teach-your-kids-to-build-their-own-game-with-python-rocket-1-3159) and [part 2](https://dev.to/mustafaanaskh99/teach-your-kids-to-build-their-own-game-with-python-2-d5l) then get back here. We'll be waiting!)
 So far our code creates the main player and allows us to move it, create the enemies, and randomly place them in the battle field.
 The code by now looks like this:
 
@@ -790,3 +791,7 @@ turtle.close() #this just fixes issues related to closing the window
 
 MISSION ACCOMPLISHED
 Now you just run it and enjoy 🎆 🎆 🎆 !!!
+
+Throughout this series, I got a lot of support messages from parents and I really appreciate that I was able to get any kid's interest. If there are any suggestion/requests you want from/for me please feel free to DM me.
+
+> I am on a lifetime mission to support and contribute to the general knowledge of the developers community as much as possible. Some of my writings might sound too silly, or too difficult, but no knowledge is ever useless. I urge you to do the same and try to pay back your community your own way 😄 ❤️
