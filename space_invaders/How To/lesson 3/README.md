@@ -3,6 +3,9 @@
 So, without further due, lets pickup from where we left last time.
 (Nope wait! if you havent, go check [part 1](https://dev.to/mustafaanaskh99/teach-your-kids-to-build-their-own-game-with-python-rocket-1-3159) and [part 2](https://dev.to/mustafaanaskh99/teach-your-kids-to-build-their-own-game-with-python-2-d5l) then get back here. We'll be waiting!)
 So far our code creates the main player and allows us to move it, create the enemies, and randomly place them in the battle field.
+
+(want to jump and see the final outcome of this lesson? feel free to [visit the original repo](https://github.com/MustafaAnasKH99/Space-Invaders---Python) or jump to the end of this)
+
 The code by now looks like this:
 
 ```python
