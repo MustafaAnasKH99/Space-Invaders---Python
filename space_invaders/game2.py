@@ -105,6 +105,16 @@ enemy_speed = 30 # this is the speed of our enemies - You can change it to make 
 
 while True:
     for enemy in enemies: # go through the enemies one by one
+        if isCollosion(player, enemy):
+          player.hideturtle()  #hide player from the arena
+          turtle.color('red')
+          turtle.penup()
+          turtle.setposition(0, 0)
+          turtle.write("Game Over!", move=False, align="center", font=("Arial", 35, "normal"))
+          turtle.setposition(0, -50) #Go to a new line      
+          turtle.write("Your score is: {}".format(score), move=False, align="center", font=("Arial", 35, "normal"))
+          turtle.done()  #Stop Game
+          break
 
         if isCollosion(bullet, enemy):
           bullet.hideturtle()
