@@ -1,8 +1,10 @@
 #  This file is for the follow up tutorial 🐢
 import turtle
+import math
 
 from random import randint
 
+score = 0
 pen = turtle.Turtle()
 
 turtle.register_shape("ship.gif")
@@ -44,6 +46,12 @@ bullet.hideturtle()
 bullet_speed = 50
 bullet_state = 'ready' #???
 
+turtle.color("white")
+turtle.penup()
+turtle.setposition(-300, 250)
+turtle.write("Your score is: {}".format(score), move=False, align="left", font=("Arial", 18, "normal"))
+turtle.hideturtle()
+
 def moveRight():
   x = player.xcor()
   x += 10
@@ -56,7 +64,6 @@ def moveLeft():
     player.setx(x)  
 
 def moveForward():
-    print('something')
     y = player.ycor()
     y += 10
     player.sety(y)
@@ -76,6 +83,13 @@ def fire_bullet():
         bullet.setposition(x, y) # move the bullet to where the player is
         bullet.showturtle() # show the bullet
 
+def isCollosion(t1, t2):
+    distance = math.sqrt(math.pow(t1.xcor() - t2.xcor(), 2) + math.pow(t1.ycor() - t2.ycor(), 2))
+    if distance < 35:
+        return True
+    else:
+        return False
+
 wn = turtle.Screen()
 wn.listen()
 
@@ -91,6 +105,19 @@ enemy_speed = 30 # this is the speed of our enemies - You can change it to make 
 
 while True:
     for enemy in enemies: # go through the enemies one by one
+
+        if isCollosion(bullet, enemy):
+          bullet.hideturtle()
+          bullet_state = 'ready' #make the state ready to allow firing again
+          enemy.setposition(-300, 300)
+          score += 1
+          turtle.clear()
+          turtle.color("white")
+          turtle.penup()
+          turtle.setposition(-300, 250)
+          turtle.write("Your score is: {}".format(score), move=False, align="left", font=("Arial", 18, "normal"))
+          turtle.hideturtle()
+
         if enemy.xcor() > 270: # check if the enemy hit the white line
           y = enemy.ycor() # get the current y location of the enemy
           y -= 40 # change the y location of the enemy by 40
